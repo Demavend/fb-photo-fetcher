@@ -3,6 +3,7 @@ oauth_url += '?client_id=161335491091695';
 oauth_url += '&redirect_uri=' + 'http://fb-photo-app.zzz.com.ua/';
 oauth_url += '&scope=user_about_me,email,user_location,user_photos,publish_actions,user_birthday,user_likes';
 window.fbAsyncInit = function() {
+  console.log('before init')
     FB.init({
         appId: '161335491091695',
         autoLogAppEvents: true,
@@ -10,6 +11,8 @@ window.fbAsyncInit = function() {
         version: 'v2.10'
     });
     FB.getLoginStatus(function(response) {
+      console.log('resp', response)
+
         if (response.status === 'connected') {
             var uid = response.authResponse.userID;
             accessToken = response.authResponse.accessToken;
@@ -54,6 +57,6 @@ window.fbAsyncInit = function() {
     }
     js = d.createElement(s);
     js.id = id;
-    js.src = "//connect.facebook.net/ru_RU/sdk.js";
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
