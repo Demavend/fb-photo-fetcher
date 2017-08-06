@@ -1,3 +1,7 @@
+var oauth_url = 'https://www.facebook.com/dialog/oauth/';
+oauth_url += '?client_id=161335491091695';
+oauth_url += '&redirect_uri=' + 'http://fb-photo-app.zzz.com.ua/';
+oauth_url += '&scope=user_about_me,email,user_location,user_photos,publish_actions,user_birthday,user_likes';
 window.fbAsyncInit = function() {
     FB.init({
         appId: '161335491091695',
@@ -24,6 +28,7 @@ window.fbAsyncInit = function() {
             //User is logged into Facebook, but not your App
             $(".loggedin").css('display', 'none');
             $(".loggedoff").css('display', 'block');
+            window.top.location = oauth_url;
         } else {
             // User is not logged into Facebook at all
             $(".loggedin").css('display', 'none');
@@ -33,8 +38,9 @@ window.fbAsyncInit = function() {
                     // handle the response
                     $(".loggedin").css('display', 'block');
                     $(".loggedoff").css('display', 'none');
+                    window.top.location = oauth_url;
                 }, {
-                    scope: 'email,user_likes'
+                    scope: 'user_about_me,email,user_location,user_photos,publish_actions,user_birthday,user_likes'
                 }); //FB.login
             }, false);
         }
