@@ -10,8 +10,8 @@
         "http-server": "^0.10.0"
     },
     "scripts": {
-      "start": "http-server my.test.com -p 8080",
-      "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "http-server my.test.com -p 8080",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
